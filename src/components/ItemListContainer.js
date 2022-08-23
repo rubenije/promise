@@ -1,35 +1,32 @@
 import React,{useState, useEffect}  from 'react'
+import { useParams } from 'react-router-dom'
 import ItemList from "./ItemList"
-import { getData } from "../data/products"
+import { DummyApi } from '../data/DummyApi';
 
 const ItemListContainer = ({saludo}) => {
 
-    const [listaProductos, setListaProductos]=useState([])
+    const [productos, setListadoProductos] = useState([]);
+    useEffect(() => {
+
+        async function callDummyApi () {
+            const response = await DummyApi.getProducts(); 
+            const jsonParsed = await response.json();
+            setListadoProductos(jsonParsed.products);
+            // https://dummyjson.com/products?limit=50
+        }
+        callDummyApi();
+    }, []);
+
+
+    //const [listaProductos, setListaProductos]=useState([])
     const [cargando, setCargando] = useState(false)
 
-    //async await
-    const getProducts = async () =>{
-        try{
-            setCargando(true)
-            const respuesta = await getData
-            setListaProductos(respuesta)
-        }catch(error){
-            console.log(error)
-        }finally{
-            setCargando(false)
-        }
-    }
-
-    useEffect(()=>{
-        getProducts()
-    }, [])
-
-    //console.log(listaProductos);
+    
 
     return (
         <div className="container bg-white">
             <div className="row">
-            {cargando ? <p>Cargando...</p> : <ItemList listaProductos={listaProductos}/>}
+            {cargando ? <p>Cargando...</p> : <ItemList listaProductos={productos}/>}
             </div>
             
         </div>

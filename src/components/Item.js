@@ -1,6 +1,7 @@
 import React from 'react';
 //import ItemCount from "./ItemCount"
 import Rating from "./Rating"
+import { Link } from 'react-router-dom'
 
 const Item = ({producto}) => {
     const {id, title, thumbnail, price, stock, rating} = producto 
@@ -9,7 +10,7 @@ const Item = ({producto}) => {
     return (
         <>
             <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                <a href={() => false} to={`/detalle/${id}`}>
+                <Link to={`/product/${id}`}>
                     <div className="product"> <img src={thumbnail} alt={title} />
                         <ul className="d-flex align-items-center justify-content-center list-unstyled icons">
                             <li className="icon"><span className="fas fa-expand-arrows-alt"></span></li>
@@ -17,7 +18,7 @@ const Item = ({producto}) => {
                             <li className="icon"><span className="fas fa-shopping-bag"></span></li>
                         </ul>
                     </div>
-                </a>
+                </Link>
                 
                 <div className="title pt-4 pb-1">{title}</div>
                 <Rating rating={rating}/>

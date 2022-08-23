@@ -567,3 +567,10 @@ const productos = [
     })
 
 
+   export function  getItem (id){
+      return new Promise((resolve, reject) => {
+          setTimeout(() => {
+              resolve(productos.find(prod=>prod.id===id));
+          }, 2000);
+      });
+  }

@@ -9,7 +9,7 @@ const Detail = () => {
                 </div>
                 <div className="row mt-5">
                     <div className="col-12 col-md-6">
-                        <img src="http://placeimg.com/640/480/any"></img>
+                        <img src="http://placeimg.com/640/480/any" className="img-fluid"></img>
                     </div>
                     <div className="col-12 col-md-6">
                         <h1>Nombre del Producto</h1>
