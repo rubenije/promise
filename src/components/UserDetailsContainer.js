@@ -6,8 +6,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { DummyApi } from '../../data/DummyApi';
-import { UserDetails } from '../../components/UserDetails/UserDetails';
+import { DummyApi } from '../data/DummyApi';
+
+import ItemCount from '../components/ItemCount';
+
 
 export default function UserDetailsContainer () {
 
@@ -28,7 +30,6 @@ export default function UserDetailsContainer () {
 
     return (
         <>
-            <UserDetails></UserDetails>
             <div className="container pt-4 mt-4">
                 <div className="row">
                     <div className="col-12 col-md-12">
@@ -44,9 +45,13 @@ export default function UserDetailsContainer () {
                         <h5 className="valor">${producto.price}</h5>
                         <p>{producto.description}</p>
                         <span>Stock: {producto.stock}</span>
+                        <br/><br/><br/>
+                        <ItemCount stock={10} initial={1}></ItemCount>
                     </div>
                 </div>
+                
             </div>
+        
         </>
 
     )

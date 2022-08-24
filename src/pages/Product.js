@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 import Navbar from '../components/NavBar';
-import UserDetailsContainer from '../components/UserDetailsContainer/UserDetailsContainer';
+import UserDetailsContainer from '../components/UserDetailsContainer';
 
 export default function Product () {
     return (

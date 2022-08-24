@@ -18,23 +18,19 @@ const ItemCount = ({stock, initial}) => {
     }
 
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-10 m-auto col-sm-3 text-center">
-                    <div className="input-group">
-                        <a href={() => false} className="btn btn-default btn-number" onClick={removeCount}>
-                            <strong>-</strong>
-                        </a>
-                        <h1>{count}</h1>
-                        <a href={() => false} className="btn btn-default btn-number" onClick={addCount}>
-                            <strong>+</strong>
-                        </a>
-                    </div>
-                    <br/>
-                    <a href={() => false} type="button" className="btn btn-primary" onClick={addToCart}>Agregar al Carrito</a>
-                </div>
-            </div>
+      <>
+        <div className="input-group">
+            <a href={() => false} className="btn btn-default btn-number" onClick={removeCount}>
+                <strong>-</strong>
+            </a>
+            <h1>{count}</h1>
+            <a href={() => false} className="btn btn-default btn-number" onClick={addCount}>
+                <strong>+</strong>
+            </a>
         </div>
+        <br/>
+        <a href={() => false} type="button" className="btn btn-primary" onClick={addToCart}>Agregar al Carrito</a>
+    </>
 
     )
 }
